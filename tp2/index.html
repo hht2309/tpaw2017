@@ -1,23 +1,57 @@
-<!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>TP2</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <!-- Place favicon.ico in the root directory -->
-        
-        <!-- Code à dé-commenter si besoin de fichier CSS ou JS -->
-        <!--<link rel="stylesheet" href="style.css">-->
-        <!--<script src="js/main.js"></script>-->
-    </head>
-    <body>        
-        <h1>tp2</h1>
-        <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
-        <img src="../galilee.png" alt="Logo Galilee"/>
-    </body>
+<head>
+
+<meta charset="utf-8"/>
+
+    <link href="formulaire.css" rel="stylesheet" type="text/css"/>
+	<script type ="text/javascript" src="formulaire.js"></script>
+	
+</head>
+
+<body>
+
+    <h1 style = "text-align: center" >Saisie d'une fiche "Personne"</h1>
+
+    <form action="page2.html" method="post">
+	
+	<table style="width:100%">
+		<tr>
+			<td> <label for="nom">Nom</label> </td>
+			<td><input type="text" id="nom" name="nom" placeholder="Entrez votre nom" required/></td>
+		</tr>			
+		<tr>
+			<td> <label for="prenom">Prenom</label> </td>
+			<td><input type="text" id="prenom" name="prenom" placeholder="Entrez votre prenom" required/></td>
+		</tr>
+		
+		<tr>
+			<td> <label for="Date de naissance">Date de naissance</label> </td>
+			<td><input type="datetime" id="naissance" name="naissance" placeholder="JJ/MM/AAAA" required/></td>
+		</tr>
+		
+		<tr>
+			<td> <label for="adress">Adress</label> </td>
+			<td><input type="text" id="adress" name="adress" placeholder="Entrez votre adress" required/></td>
+		</tr>
+		
+		<tr>
+			<td> <label for="email">Email</label> </td>
+			<td><input type="mail" id="email" name="email" placeholder="Entrez votre email" required/></td>
+		</tr>
+		
+		<tr>
+			<td> </td>
+			<td><input type = "button" value ="Valider" onclick="validation();" /></td>
+		</tr>
+		
+
+	</table>
+
+    </form>
+	
+		<td> <div  id="error" > </div></td>
+		<div id="resultat" > </div>
+</body>
+
 </html>
