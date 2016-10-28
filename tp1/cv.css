@@ -1,0 +1,18 @@
+body {
+    background-color: rgb(204, 204, 204);
+}
+
+table {
+	background-color: rgb(255, 255, 255)
+	
+	
+	
+}
+
+a {
+	text-decoration: none; 
+    color : black;
+}
+a:hover{
+color: rgb(255, 191, 0);	
+}
