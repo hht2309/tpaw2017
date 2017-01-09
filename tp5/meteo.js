@@ -30,7 +30,7 @@ function searchCity(_city) {
 	console.log(searchLatLng, 'Hello from ' + _city);
 
     var request = new XMLHttpRequest();
-    request.open('GET', 'https://api.openweathermap.org/data/2.5/weather?q=' + _city + '&units=metric&appid=0bb5f32378f4c71e43767c7fad870bd8', true);
+    request.open('GET', 'https://demo.bilelz.fr/owmap/?q=' + _city + '&units=metric&appid=0bb5f32378f4c71e43767c7fad870bd8', true);
 
     request.onload = function () {
         if (request.status >= 200 && request.status < 400) {
@@ -78,7 +78,7 @@ function searchLatLng(position) {
 	 document.getElementById("city").value="Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude;  
 
     var request = new XMLHttpRequest();
-    request.open('GET', 'https://api.openweathermap.org/data/2.5/weather?lat='+position.coords.latitude+'&lon=' +position.coords.longitude+ '&units=metric&appid=0bb5f32378f4c71e43767c7fad870bd8', true);
+    request.open('GET', 'https://demo.bilelz.fr/owmap/?lat='+position.coords.latitude+'&lon=' +position.coords.longitude+ '&units=metric&appid=0bb5f32378f4c71e43767c7fad870bd8', true);
 
     request.onload = function () {
         if (request.status >= 200 && request.status < 400) {
