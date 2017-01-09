@@ -30,7 +30,7 @@ function searchCity(_city) {
 	console.log(searchLatLng, 'Hello from ' + _city);
 
     var request = new XMLHttpRequest();
-    request.open('GET', 'http://api.openweathermap.org/data/2.5/weather?q=' + _city + '&units=metric&appid=0bb5f32378f4c71e43767c7fad870bd8', true);
+    request.open('GET', 'https://api.openweathermap.org/data/2.5/weather?q=' + _city + '&units=metric&appid=0bb5f32378f4c71e43767c7fad870bd8', true);
 
     request.onload = function () {
         if (request.status >= 200 && request.status < 400) {
@@ -52,7 +52,7 @@ function searchCity(_city) {
 			
             document.getElementById("cityname").innerHTML=responseJSON.name;
             document.getElementById("time").innerHTML=formattedTime;
-            document.getElementById("icon").src="http://openweathermap.org/img/w/"+src_icon+".png";
+            document.getElementById("icon").src="https://openweathermap.org/img/w/"+src_icon+".png";
 			
 			var str = "0";
 			var degree = str.sup();
@@ -78,7 +78,7 @@ function searchLatLng(position) {
 	 document.getElementById("city").value="Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude;  
 
     var request = new XMLHttpRequest();
-    request.open('GET', 'http://api.openweathermap.org/data/2.5/weather?lat='+position.coords.latitude+'&lon=' +position.coords.longitude+ '&units=metric&appid=0bb5f32378f4c71e43767c7fad870bd8', true);
+    request.open('GET', 'https://api.openweathermap.org/data/2.5/weather?lat='+position.coords.latitude+'&lon=' +position.coords.longitude+ '&units=metric&appid=0bb5f32378f4c71e43767c7fad870bd8', true);
 
     request.onload = function () {
         if (request.status >= 200 && request.status < 400) {
@@ -96,7 +96,7 @@ function searchLatLng(position) {
 			
             document.getElementById("cityname").innerHTML=responseJSON.name;
             document.getElementById("time").innerHTML=formattedTime;
-            document.getElementById("icon").src="http://openweathermap.org/img/w/"+src_icon+".png";
+            document.getElementById("icon").src="https://openweathermap.org/img/w/"+src_icon+".png";
 			
 			var str = "0";
 			var degree = str.sup();
@@ -106,7 +106,7 @@ function searchLatLng(position) {
             document.getElementById("cloud").innerHTML=responseJSON.clouds.all+"%";
             document.getElementById("wind").innerHTML=responseJSON.wind.speed +" m/s";
 			document.getElementById("map").style.visibility = "visible";
-            document.getElementById("map").src="http://maps.googleapis.com/maps/api/staticmap?markers="+position.coords.latitude+","+position.coords.longitude+"&size=400x250&zoom=5";
+            document.getElementById("map").src="https://maps.googleapis.com/maps/api/staticmap?markers="+position.coords.latitude+","+position.coords.longitude+"&size=400x250&zoom=5";
 
         } else {
 
