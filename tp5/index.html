@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>AW-Formulair v.2</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> ->
+	<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="./meteo.js"></script>
+	<style>  
+	div.result {
+	display:none;
+	}
+	</style>
+</head>
+
+<body>
+	<div class="container-fluid">
+		<h1>TP5 MÉTÉO AVEC JAVASCRIPT</h1>
+		<hr>
+		
+		<div class="col-lg-offset-3 col-lg-6">
+		
+			<div class="input-group">
+			<span class="input-group-btn">
+				<button id = "GPS" class="btn btn-info" type="button">GPS</button>
+			</span>
+			<input id="city" type="text" class="form-control" placeholder="Votre ville, Paris, NY,...">
+			<span class="input-group-btn">
+				<button id = "Search" class="btn btn-primary" type="button">Recherche</button>
+			</span>
+			</div><!-- /input-group -->
+
+		
+		
+			<div class="result" id="result">
+			<div class="col-lg-offset-2 col-lg-8">
+			
+				
+				<div style="font-weight:bold;font-size:300%;text-align:enter;color:rgb(66, 143, 244)" class="col-lg-offset-4" id = "cityname"></div>
+				<div style="text-align:enter" class="col-lg-offset-4 col-lg-1" id = "time"></div>
+				<hr>
+				
+				<image class="col-lg-offset-3" align="middle" height="150" width="150" id = "icon"> </image>
+				
+
+				<div style="font-weight:bold;font-size:130%;text-align:enter" class="col-lg-offset-4 col-lg-8" id = "temperature"></div>
+				<p>
+					</br>
+				</p>
+				<div style="font-weight:bold;text-align:enter" class="col-lg-offset-4 col-lg-8" id = "description"></div>
+				
+				<p>
+					</br>
+				</p>
+				
+				<hr>
+				
+				<div class="row">
+				<label for="inputname" class="col-lg-4 control-label">Humidity</label>
+				<div class="col-lg-6" id = "humidity"></div>
+				</div>
+			
+				
+				
+				<hr>
+			
+				<div class="row">
+				<label for="inputname" class="col-lg-4 control-label">Nuage</label>
+				<div class="col-lg-6" id = "cloud"></div>
+				</div>
+				
+				<hr>
+				
+				<div class="row">
+				<label for="inputname" class="col-lg-4 control-label">Vent</label>
+				<div class="col-lg-6" id = "wind"></div>
+				</div>
+				
+				<hr>
+				<image id = "map"></image>
+			</div>
+			</div>
+		</div>
+		
+		
+		<!-- Modal error-->
+  <div id="Modal_error" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+         <h4 class="modal-title">Messages</h4>
+      </div>
+      <div class="modal-body">
+        <p>Veuillez entrer le nom de ville (e.g., Paris,..)</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+	</div>
+
+</body>
+
+</html>
