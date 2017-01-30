@@ -1,1 +1,70 @@
 
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+	<meta charset="utf8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+
+<body>
+<div class="container-fluid">
+
+<div class="col-lg-offset-3 col-lg-6 " >
+<div class="input-group">
+	<span class="input-group-btn">
+		<button ng-click="gps()" id = "GPS" class="btn btn-info" type="button"><span class="glyphicon glyphicon-screenshot"></span> GPS</button>
+	</span>
+		<input ng-model="city" id="city" type="text" class="form-control" placeholder="Votre ville, Paris, NY,...">
+	<span class="input-group-btn">
+		<button ng-click="recherche()" id = "Search" class="btn btn-primary" type="button"><span class="glyphicon glyphicon-search"></span> Recherche</button>
+	</span>
+</div>
+</div>
+
+<div class="col-lg-offset-4 col-lg-4">
+ <div ng-if="meteo">
+            <center>
+                <h1>{{meteo.name}}</h1>
+                <hr width="50%">
+                <div>
+                <h1><i class="wi wi-owm-day-{{meteo.weather[0].id}}"></i></h1>
+                </div>
+                <h4>{{meteo.main.temp -273 | number:0}} °C</h4>
+                <div id="description"> {{meteo.weather[0].description}}</div>
+                <hr width="50%">
+            </center>
+            <div class="row">
+                <div class="col-xs-3 col-xs-offset-3">Humidity</div>
+                <div id="Humidity" class="col-xs-3">{{meteo.main.humidity}}%</div>
+            </div>
+            <hr width="50%">
+            <div class="row">
+                <div class="col-xs-3 col-xs-offset-3">Cloud</div>
+                <div id="Cloud" class="col-xs-3">{{meteo.clouds.all}}%</div>
+            </div>
+            <hr width="50%">
+            <div class="row">
+                <div class="col-xs-3 col-xs-offset-3">Wind</div>
+                <div class="col-xs-3">
+                    <span id="Wind">{{meteo.wind.speed}}m/s/</span><i id="windDirection" class="wi wi-wind towards-{{meteo.wind.deg}}-deg"></i>
+                </div>
+            </div>
+            <hr width="50%">
+            <center>
+                <image id="map" src="https://maps.googleapis.com/maps/api/staticmap?size=400x250&center={{meteo.name}}&markers={{meteo.name}}&key=AIzaSyCygKKqNa3Z7-M3HDNgePKj4X3KkgiUgSA">
+            </center>
+        </div>
+<p ng-if="errorMsg "> {{errorMsg}} </p>
+</div>
+
+
+
+</div>
+
+
+</body>		
+			
+			
+</html>
