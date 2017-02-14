@@ -1,1 +1,96 @@
 
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+	<meta charset="utf8"></meta>
+	<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+</head>
+
+
+<body>
+<div class="container-fluid">
+<center>
+            <h1>Météo AngularJS</h1>
+        </center>
+<div class="col-lg-offset-3 col-lg-6 " >
+<form data-ng-submit="recherche()" name="myForm">
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-btn">
+			    <button class="btn btn-warning" type="button" data-ng-click="gps()"><span class="glyphicon glyphicon-screenshot"></span> GPS</button>
+			</span>
+            <input type="search" name="city" ng-model="city" required ng-minlength="3" ng-maxlength="20" class="form-control" />
+
+            <span class="input-group-btn">
+                <!-- TP7 : l’attribut nb-disabled rendra cliquable le bouton “rechercher” seulement si le champ de saisie est correctement rempli -->
+                <button class="btn btn-primary" type="submit"  ng-disabled="!myForm.$valid"> 
+                    <span class="glyphicon glyphicon-search"></span> Recherche
+                </button>
+		    </span>
+        </div>
+    </div>
+
+    <!-- TP7 : ici, on gère l’affichage des messages d’erreur  selon l’état du champ de saisie -->
+    <div ng-messages="myForm.city.$error" role="alert">
+	    <div ng-message="required" class="label label-danger">Veuillez saisir une ville SVP</div>
+		<div ng-message="minlength" class="label label-danger"> Le nom de ville est trop court </div>
+        <div ng-message="maxlength" class="label label-danger"> Le nom de ville est trop long</div>
+	  </div>
+</form>
+</div>
+
+<div class="col-lg-offset-4 col-lg-4">
+ <div ng-if="meteo">
+            <center>
+                <h1>{{meteo.name}}</h1>
+                <hr width="50%">
+                <div>
+                <h1><i class="wi wi-owm-day-{{meteo.weather[0].id}}"></i></h1>
+                </div>
+                <h4>{{meteo.main.temp | number:0}} °C</h4>
+                <div id="description"> {{meteo.weather[0].description}}</div>
+                <hr width="50%">
+            </center>
+            <div class="row">
+                <div class="col-xs-3 col-xs-offset-3">Humidity</div>
+                <div id="Humidity" class="col-xs-3">{{meteo.main.humidity}}%</div>
+            </div>
+            <hr width="50%">
+            <div class="row">
+                <div class="col-xs-3 col-xs-offset-3">Cloud</div>
+                <div id="Cloud" class="col-xs-3">{{meteo.clouds.all}}%</div>
+            </div>
+            <hr width="50%">
+            <div class="row">
+                <div class="col-xs-3 col-xs-offset-3">Wind</div>
+                <div class="col-xs-3">
+                    <span id="Wind">{{meteo.wind.speed}}m/s/</span><i id="windDirection" class="wi wi-wind towards-{{meteo.wind.deg}}-deg"></i>
+                </div>
+            </div>
+            <hr width="50%">
+			
+			 <div ng-repeat="x in forecast.list">
+            <hr width="50%">
+            <div class="row">
+                <div class="col-xs-3 col-xs-offset-3">{{x.dt_txt}}</div>
+                <div  class="col-xs-3"><i class="wi wi-owm-day-{{x.weather[0].id}}"></i> {{x.main.temp}}°C</div>
+            </div>
+            </div>
+			
+            <center>
+                <image id="map" src="https://maps.googleapis.com/maps/api/staticmap?size=400x250&center={{meteo.name}}&markers={{meteo.name}}&key=AIzaSyCygKKqNa3Z7-M3HDNgePKj4X3KkgiUgSA">
+            </center>
+        </div>
+<p ng-if="errorMsg "> {{errorMsg}} </p>
+</div>
+
+
+
+</div>
+
+
+</body>		
+			
+			
+</html>
